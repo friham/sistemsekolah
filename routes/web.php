@@ -3,7 +3,7 @@
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\PendaftaranController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,3 +19,7 @@ Route::put('/jurusan/{jurusan}', [JurusanController::class, 'update'])->name('ju
 Route::delete('/jurusan/{jurusan}', [JurusanController::class, 'destroy'])->name('jurusan.destroy');
 
 Route::resource('pendaftaran', PendaftaranController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

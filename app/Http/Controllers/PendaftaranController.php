@@ -44,7 +44,8 @@ class PendaftaranController extends Controller
         }
 
         Pendaftaran::create($request->all());
-        return redirect()->route('pendaftaran.index');
+        
+        return redirect()->route('pendaftaran.index')->with('success', 'Pendaftaran berhasil!');
     }
     public function show(Pendaftaran $pendaftaran)
     {
